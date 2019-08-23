@@ -34,14 +34,14 @@ public class BeerController {
     }
 
 
-    @PostMapping("/save/{beerId}")
+    @PostMapping("/save")
     public ResponseEntity<BeerDto> saveBeer(@RequestBody BeerDto beerDto)throws MyException {
         try{
             BeerDto savedDto = beerService.saveNewBeer(beerDto);
             System.out.println(savedDto.toString());
             HttpHeaders headers = new HttpHeaders();
             headers.add("Location","api/v1/beer/"+ savedDto.getId().toString());
-            return new ResponseEntity<BeerDto>(savedDto, headers, HttpStatus.CREATED);
+            return new ResponseEntity<>(savedDto, headers, HttpStatus.CREATED);
         }catch (Exception e){
             e.printStackTrace();
             System.out.println(e.getMessage());
