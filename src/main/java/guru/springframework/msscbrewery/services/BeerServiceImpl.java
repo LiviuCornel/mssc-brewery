@@ -27,4 +27,15 @@ public class BeerServiceImpl implements BeerService {
                 .upc(beerDto.getUpc())
                 .build();
     }
+
+    @Override
+    public void updateBeer(UUID beerId, BeerDto beerDto) {
+        //aggiorna una birra
+        System.out.println("Ho aggiornato una birra");
+    }
+
+    @Override
+    public void deleteBeer(UUID beerId) {
+        System.out.println("Ho cancellato una birra");
+    }
 }
